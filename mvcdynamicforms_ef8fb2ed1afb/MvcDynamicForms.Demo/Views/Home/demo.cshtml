@@ -31,7 +31,7 @@
     The RenderHtml() method doesn't render any form elements nor submit buttons. As you can see,
     we have surrounded the RenderHtml() method call with the n /e /eded elements for form submiss /ion.*@
     
-    @(Model.RenderHtml(true))
+    @( new MvcHtmlString( Model.RenderHtml(true)))
     
     
     <input type="submit" value="Submit" />

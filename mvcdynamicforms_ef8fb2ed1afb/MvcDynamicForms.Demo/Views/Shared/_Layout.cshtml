@@ -21,11 +21,17 @@
                 </ul>
             </div>
         </div>
-        <div id="main">
+        @*<div id="main">
             @RenderBody()
         </div>
         <div id="footer">
+        </div>*@
+                <div id="main">
+            @RenderSection("MainContent", required: false)
+            <div id="footer">
+            </div>
         </div>
+
     </div>
 </body>
 </html>
