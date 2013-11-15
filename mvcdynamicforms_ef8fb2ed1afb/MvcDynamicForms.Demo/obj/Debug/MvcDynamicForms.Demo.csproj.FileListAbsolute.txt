@@ -1,56 +1,23 @@
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-C:\Users\Ronnie\Documents\Visual Studio 2008\Projects\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-C:\Users\rdoverby\Desktop\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-Z:\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-C:\Users\rdoverby\Documents\My Dropbox\Code\MvcDynamicForms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-C:\Users\rdoverby\Documents\Visual Studio 2008\Projects\MVC Dynamic Forms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-C:\code\mvcdynamicforms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\obj\Debug\ResolveAssemblyReference.cache
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-Z:\code\mvcdynamicforms\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.dll
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\bin\MvcDynamicForms.Demo.pdb
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\bin\MvcDynamicForms.dll
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\bin\MvcDynamicForms.pdb
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.csprojResolveAssemblyReference.cache
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.dll
-C:\Downloads\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MvcDynamicForms.Demo\obj\Debug\MvcDynamicForms.Demo.pdb
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\obj\Debug\MVCDynamicForms.Demo.csprojResolveAssemblyReference.cache
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\MVCDynamicForms.Demo.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\MVCDynamicForms.Demo.pdb
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\EntityFramework.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\Microsoft.Web.Infrastructure.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\MvcDynamicForms.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Helpers.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Mvc.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Providers.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Razor.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.Deployment.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.Razor.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\MvcDynamicForms.pdb
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\EntityFramework.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Helpers.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Mvc.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.Razor.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.Deployment.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.Razor.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\obj\Debug\MVCDynamicForms.Demo.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\obj\Debug\MVCDynamicForms.Demo.pdb

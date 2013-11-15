@@ -1,0 +1,23 @@
+@model MvcDynamicForms.Form
+
+@{ 
+ ViewBag.Title = "Index"; 
+}
+@section MainContent { 
+<script type="text/javascript">
+        $(function() {
+
+            // hide error labels when the user clicks on the offending input element
+            $(':input').focus(function() {
+                $(this).closest('td').children('label.MvcDynamicFieldError').fadeOut();
+            });
+        });
+    </script>
+
+    @{ Html.BeginForm();}
+
+    @(Model.RenderHtml(true))
+    <input type="submit" />
+    @{ Html.EndForm();}
+ 
+}
