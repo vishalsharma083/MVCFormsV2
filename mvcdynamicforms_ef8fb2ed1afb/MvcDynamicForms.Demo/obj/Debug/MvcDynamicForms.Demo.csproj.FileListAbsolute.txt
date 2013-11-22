@@ -21,3 +21,7 @@ C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicFor
 C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\System.Web.WebPages.Razor.xml
 C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\obj\Debug\MVCDynamicForms.Demo.dll
 C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\obj\Debug\MVCDynamicForms.Demo.pdb
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\Newtonsoft.Json.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\Newtonsoft.Json.xml
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\fastJSON.dll
+C:\mygit\mvcdynamicforms-ef8fb2ed1afb\mvcdynamicforms_ef8fb2ed1afb\MVCDynamicForms.Demo\bin\fastJSON.pdb
