@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MVCDynamicForms.DBLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvcDynamicForms.Demo.Models;
 namespace MVCDynamicForms.DBLayer.Tests
 {
     [TestClass()]
@@ -13,7 +14,11 @@ namespace MVCDynamicForms.DBLayer.Tests
         [TestMethod()]
         public void SaveTest()
         {
-            Assert.Fail();
+            MongoDBLayer dblayer = new MongoDBLayer();
+            MvcDynamicForms.Form form = FormProvider.GetForm();
+            form.ContentId = Guid.NewGuid();
+            dblayer.Save<MvcDynamicForms.Form>(form);
+            //List<MvcDynamicForms.Response> responses = form.GetResponses(false);
         }
     }
 }

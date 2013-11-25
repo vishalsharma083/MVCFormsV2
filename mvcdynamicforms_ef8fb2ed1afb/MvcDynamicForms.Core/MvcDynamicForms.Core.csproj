@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentBase.cs" />
     <Compile Include="DataItem.cs" />
     <Compile Include="DuplicateException.cs" />
     <Compile Include="DynamicFormModelBinder.cs" />

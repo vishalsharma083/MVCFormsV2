@@ -14,8 +14,9 @@ namespace MvcDynamicForms
     /// </summary>
     [Serializable]
     [ModelBinder(typeof(DynamicFormModelBinder))]
-    public class Form
+    public class Form :ContentBase
     {
+        public Guid ContentId { get; set; }
         private string _fieldPrefix = "MvcDynamicField_";
         private FieldList _fields;
         public string Template { get; set; }
@@ -82,23 +83,43 @@ namespace MvcDynamicForms
             if (string.IsNullOrEmpty(jsVarName))
                 jsVarName = "MvcDynamicFieldData";
 
+            var script = new TagBuilder("script");
+            script.Attributes["type"] = "text/javascript";
+            script.InnerHtml = string.Format("{0}var {1} = {2};{3}",
+                Environment.NewLine,
+                jsVarName,
+                ToJson(),
+                Environment.NewLine);
+
+            return script.ToString();
+        }
+
+        public string ToJson()
+        {
             if (_fields.Any(x => x.HasClientData))
             {
                 var data = new Dictionary<string, Dictionary<string, DataItem>>();
                 foreach (var field in _fields.Where(x => x.HasClientData))
                     data.Add(field.Key, field.DataDictionary);
 
-                var script = new TagBuilder("script");
-                script.Attributes["type"] = "text/javascript";
-                script.InnerHtml = string.Format("{0}var {1} = {2};",
-                    Environment.NewLine,
-                    jsVarName,
-                    data.ToJson());
-
-                return script.ToString();
+                return data.ToJsonV2();
             }
+            else
+            {
+                return "{}";
+            }
+        }
 
-            return null;
+        public string ToJson(bool prepareKeyValueStructure_)
+        {
+            if (prepareKeyValueStructure_)
+            {
+                return string.Format("{{\"ContentId\":\"{0}\",\"FormContent\":{1}}}", ContentId.ToString(), ToJson());    
+            }
+            else
+            {
+                return ToJson();
+            }
         }
         /// <summary>
         /// Validates each displayed InputField object contained in the Fields collection. 

@@ -8,9 +8,9 @@ namespace MVCDynamicForms.DBLayer
 {
     interface IDBLayer
     {
-        void Save(Form form_);
-        Form Get(Guid id_);
-        void Delete(Guid id_);
-        void Update(Form form_);
+        void Save<T>(T val_) where T : ContentBase;
+        T Get<T>(Guid id_) where T : ContentBase;
+        void Delete<T>(Guid id_) where T : ContentBase;
+        void Update<T>(T val_) where T : ContentBase;
     }
 }

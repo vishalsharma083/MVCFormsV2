@@ -17,9 +17,17 @@ namespace MVCDynamicForms.DBLayer
         static MongoDBLayer()
         {
             server = GetConnection();
+
             BsonClassMap.RegisterClassMap<Form>(cm =>
             {
                 cm.AutoMap();
+                cm.GetMemberMap(x => x.ContentId);
+                cm.MapIdProperty(x => x.ContentId);
+                cm.MapProperty(x => x.InputFields);
+                cm.MapProperty(x => x.Fields);
+                cm.MapProperty(x => x.FieldPrefix);
+                cm.MapProperty(x => x.Serialize);
+                cm.MapProperty(x => x.Template);
             });
         }
         private static MongoServer GetConnection()
@@ -46,23 +54,23 @@ namespace MVCDynamicForms.DBLayer
             db = server.GetDatabase(databaseName);
         }
 
-        public void Save(MvcDynamicForms.Form form_)
+        public void Save<T>(T val_) where T : ContentBase
         {
-            var coll =  db.GetCollection<Form>("Forms");
-            var writeConcernResult = coll.Save<Form>(form_);
+            var coll = db.GetCollection<T>("Forms");
+            var writeConcernResult = coll.Save<T>(val_);
         }
 
-        public MvcDynamicForms.Form Get(Guid id_)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Guid id_)
+        public T Get<T>(Guid id_) where T : ContentBase
         {
             throw new NotImplementedException();
         }
 
-        public void Update(MvcDynamicForms.Form form_)
+        public void Delete<T>(Guid id_) where T : ContentBase
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update<T>(T val_) where T : ContentBase
         {
             throw new NotImplementedException();
         }

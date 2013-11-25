@@ -56,6 +56,7 @@ namespace MvcDynamicForms.Demo.Models
              * to learn how to use the Form object in your web application.
              */
 
+
             // create fields
             var description = new Literal
             {
@@ -170,134 +171,7 @@ namespace MvcDynamicForms.Demo.Models
 
             return form;
         }
-        public static Form GetFormWithData()
-        {
 
-            // create fields
-            var description = new Literal
-            {
-                Key = "description",
-                Template = String.Format("<p>{0}</p>", PlaceHolders.Literal),
-                DisplayOrder = 10,
-                Html = "This is a dynamically generated form. All of the input fields on this form are generated at runtime."                
-            };
-
-            description.AddDataValue("Description", "This is a test description", true);
-
-            var name = new TextBox
-            {
-                ResponseTitle = "Name",
-                Prompt = "Enter your full name:",
-                DisplayOrder = 20,
-                Required = true,
-                RequiredMessage = "Your full name is required"
-            };
-            name.AddDataValue("Name", "Vishal Sharma",true);
-
-            var gender = new RadioList
-            {
-                DisplayOrder = 30,
-                ResponseTitle = "Gender",
-                Prompt = "Select your gender:",
-                Required = true,
-                Orientation = Orientation.Vertical
-            };
-            gender.AddChoices("Male,Female", ",");
-            gender.AddDataValue("Gender", "Male", true);
-
-            var email = new TextBox
-            {
-                DisplayOrder = 25,
-                ResponseTitle = "Email Address",
-                Prompt = "Enter your email address:",
-                Required = true,
-                RegexMessage = "Must be a valid email address",
-                RegularExpression = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
-            };
-
-            email.AddDataValue("EmailAddress", "vishal@fareportal.com", true);
-
-            var sports = new CheckBoxList
-            {
-                DisplayOrder = 40,
-                ResponseTitle = "Favorite Sports",
-                Prompt = "What are your favorite sports?",
-                Orientation = Orientation.Horizontal
-            };
-            sports.AddChoices("Baseball,Football,Soccer,Basketball,Tennis,Boxing,Golf", ",");
-            sports.AddDataValue("Favorite Sports", "Cricket", true);
-
-            var states = new Select
-            {
-                DisplayOrder = 50,
-                ResponseTitle = "Visited States",
-                MultipleSelection = true,
-                Size = 10,
-                Prompt = "What US states have you visited? (Use the ctrl key to select multiple states.)"
-            };
-            states.AddChoices("Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming", ",");
-            states.AddDataValue("Visited States", "New York", true);
-
-            var bio = new TextArea
-            {
-                DisplayOrder = 60,
-                ResponseTitle = "Bio",
-                Prompt = "Describe yourself:"
-            };
-            bio.InputHtmlAttributes.Add("cols", "40");
-            bio.InputHtmlAttributes.Add("rows", "6");
-
-            bio.AddDataValue("Bio", "I am a software engineer.", true);
-
-            var month = new Select
-            {
-                DisplayOrder = 70,
-                ResponseTitle = "Month Born",
-                Prompt = "What month were you born in?",
-                ShowEmptyOption = true,
-                EmptyOption = "- Select One - "
-            };
-            month.AddChoices("January,February,March,April,May,June,July,August,September,October,November,December", ",");
-            month.AddDataValue("Month Born", "May", true);
-
-            var agree = new CheckBox
-            {
-                DisplayOrder = 80,
-                ResponseTitle = "Agrees To Terms",
-                Prompt = "I agree to all of the terms in the EULA.",
-                Required = true,
-                RequiredMessage = "You must agree to the EULA!"
-            };
-            agree.AddDataValue("Agree To Terms", "Yes", true);
-
-            var eula = new Literal
-            {
-                DisplayOrder = 75,
-                Html = string.Format(@"<textarea readonly=""readonly"" rows=""8"" cols=""60"">{0}</textarea>", GetEULA())
-            };
-
-            var file = new FileUpload
-            {
-                Prompt = "Your photo",
-                InvalidExtensionError = "Image files only.",
-                ValidExtensions = ".jpg,.gif,.png",
-                DisplayOrder = 73,
-            };
-            file.Validated += new ValidatedEventHandler(file_Validated);
-            file.Posted += new FilePostedEventHandler(file_Posted);
-
-            var hidden = new Hidden
-            {
-                ResponseTitle = "A Hidden Field",
-                Value = "some value"
-            };
-
-            // create form and add fields to it
-            var form = new Form();
-            form.AddFields(description, name, gender, email, sports, states, bio, month, agree, eula, file, hidden);
-
-            return form;
-        }
         static void file_Posted(FileUpload fileUploadField, EventArgs e)
         {
             // here, you can do something with the posted file

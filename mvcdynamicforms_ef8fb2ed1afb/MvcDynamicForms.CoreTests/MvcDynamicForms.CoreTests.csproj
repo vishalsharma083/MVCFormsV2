@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1975AF44-19D4-46F9-9992-886C75D59E58}</ProjectGuid>
+    <ProjectGuid>{ACC28847-5781-4F8B-9C57-E95F460F67CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVCDynamicForms.DBLayerTests</RootNamespace>
-    <AssemblyName>MVCDynamicForms.DBLayerTests</AssemblyName>
+    <RootNamespace>MvcDynamicForms.CoreTests</RootNamespace>
+    <AssemblyName>MvcDynamicForms.CoreTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,8 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\crm-v1\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -51,18 +54,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FormProvider.cs" />
-    <Compile Include="MongoDBLayerTests.cs" />
+    <Compile Include="FormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcDynamicForms.Core\MvcDynamicForms.Core.csproj">
-      <Project>{9624e64a-013f-41e8-84ba-c34ee744685e}</Project>
+      <Project>{9624E64A-013F-41E8-84BA-C34EE744685E}</Project>
       <Name>MvcDynamicForms.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MVCDynamicForms.DBLayer\MVCDynamicForms.DBLayer.csproj">
-      <Project>{2FE9A8F1-EF98-47D8-860A-CA3D0A4A9A59}</Project>
-      <Name>MVCDynamicForms.DBLayer</Name>
+    <ProjectReference Include="..\MVCDynamicForms.Demo\MVCDynamicForms.Demo.csproj">
+      <Project>{0e7a7664-8fe4-4771-b5a4-bdeb74c9f199}</Project>
+      <Name>MVCDynamicForms.Demo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
