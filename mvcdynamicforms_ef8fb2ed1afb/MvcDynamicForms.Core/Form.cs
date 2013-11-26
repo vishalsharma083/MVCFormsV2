@@ -169,9 +169,6 @@ namespace MvcDynamicForms
                 hdn.Attributes["name"] = MagicStrings.MvcDynamicSerializedForm;
                 hdn.Attributes["value"] = SerializationUtility.Serialize(this);
                 html.Replace(PlaceHolders.SerializedForm, hdn.ToString(TagRenderMode.SelfClosing));
-
-                var test = fastJSON.JSON.Instance.ToJSON(this);
-                var test2 = Newtonsoft.Json.JsonConvert.SerializeObject(this);
             }
 
             html.Replace(PlaceHolders.DataScript, RenderDataScript(null));
