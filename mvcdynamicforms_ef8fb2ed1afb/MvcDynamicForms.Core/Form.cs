@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MvcDynamicForms.Fields;
 using MvcDynamicForms.Utilities;
 using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace MvcDynamicForms
 {
@@ -248,6 +249,23 @@ namespace MvcDynamicForms
             foreach (var fileUpload in Fields.Where(x => x is FileUpload).Cast<FileUpload>())
             {               
                 fileUpload.FireFilePosted();
+            }
+        }
+
+        public void LoadFormData(string formData_)
+        {
+            JObject jObject = JObject.Parse(formData_);
+            foreach (JToken token in jObject.Children())
+            {
+                if (token is JProperty)
+                {
+                    var prop = token as JProperty;
+                    var inputField = InputFields.Where(x => x.ResponseTitle == prop.Name.Replace("__", " ")).FirstOrDefault();
+                    if (inputField != null)
+                    {
+                        inputField.AddDataValue(inputField.ResponseTitle, prop.Value.ToString(), true);
+                    }
+                }
             }
         }
     }

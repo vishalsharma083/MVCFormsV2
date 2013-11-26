@@ -102,6 +102,7 @@
     <Compile Include="Enums\FieldType.cs" />
     <Compile Include="Form.cs" />
     <Compile Include="Fields\Abstract\InputField.cs" />
+    <Compile Include="FormData.cs" />
     <Compile Include="ListItem.cs" />
     <Compile Include="MagicStrings.cs" />
     <Compile Include="PlaceHolders.cs" />

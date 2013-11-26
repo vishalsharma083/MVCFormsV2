@@ -21,13 +21,19 @@ namespace MVCDynamicForms.DBLayer
             BsonClassMap.RegisterClassMap<Form>(cm =>
             {
                 cm.AutoMap();
-                cm.GetMemberMap(x => x.ContentId);
                 cm.MapIdProperty(x => x.ContentId);
                 cm.MapProperty(x => x.InputFields);
                 cm.MapProperty(x => x.Fields);
                 cm.MapProperty(x => x.FieldPrefix);
                 cm.MapProperty(x => x.Serialize);
                 cm.MapProperty(x => x.Template);
+            });
+
+            BsonClassMap.RegisterClassMap<FormData>(cm =>
+            {
+                cm.AutoMap();
+                cm.MapIdProperty(x => x.ContentId);
+                cm.MapProperty(x => x.Content);
             });
         }
         private static MongoServer GetConnection()
@@ -56,7 +62,7 @@ namespace MVCDynamicForms.DBLayer
 
         public void Save<T>(T val_) where T : ContentBase
         {
-            var coll = db.GetCollection<T>("Forms");
+            var coll = db.GetCollection<T>(typeof(T).ToString());
             var writeConcernResult = coll.Save<T>(val_);
         }
 

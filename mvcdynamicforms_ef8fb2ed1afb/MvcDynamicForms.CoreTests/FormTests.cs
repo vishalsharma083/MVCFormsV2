@@ -10,6 +10,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using MVCDynamicForms.DBLayer;
 namespace MvcDynamicForms.Tests
 {
     [TestClass()]
@@ -81,11 +82,33 @@ namespace MvcDynamicForms.Tests
             Debug.WriteLine(jsonString);
         }
 
+
         [TestMethod()]
         public void StringFormatTest()
         {
             Debug.WriteLine(string.Format("{{\"ContentId\":{0},\"FormContent\":{1}}}", 1, "{}"));
         }
+
+       
+
+        [TestMethod()]
+        public void LoadFormDataTest()
+        {
+            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            form.ContentId = Guid.NewGuid();
+            MongoDBLayer dblayer = new MongoDBLayer();
+            dblayer.Save<MvcDynamicForms.Form>(form);
+            
+            var jsonString = form.ToJson(true);
+
+            dblayer.Save<System.String>(jsonString.ToString());
+
+
+            Assert.IsNotNull(jsonString);
+            Debug.WriteLine(jsonString);
+            Assert.Fail();
+        }
+
 
         private bool IsValidJson(string jsonObject_)
         {
@@ -102,13 +125,10 @@ namespace MvcDynamicForms.Tests
                         }
                     }
                 }
-
                 // if code reached here it means json is well formed.
                 isValidJson = true;
-
             }
             catch { isValidJson = false; }
-
             return isValidJson;
         }
     }

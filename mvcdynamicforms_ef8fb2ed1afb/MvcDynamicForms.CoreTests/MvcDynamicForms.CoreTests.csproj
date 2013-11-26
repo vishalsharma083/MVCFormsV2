@@ -40,6 +40,7 @@
       <HintPath>..\..\..\crm-v1\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FormProvider.cs" />
     <Compile Include="FormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,9 +64,9 @@
       <Project>{9624E64A-013F-41E8-84BA-C34EE744685E}</Project>
       <Name>MvcDynamicForms.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MVCDynamicForms.Demo\MVCDynamicForms.Demo.csproj">
-      <Project>{0e7a7664-8fe4-4771-b5a4-bdeb74c9f199}</Project>
-      <Name>MVCDynamicForms.Demo</Name>
+    <ProjectReference Include="..\MVCDynamicForms.DBLayer\MVCDynamicForms.DBLayer.csproj">
+      <Project>{2fe9a8f1-ef98-47d8-860a-ca3d0a4a9a59}</Project>
+      <Name>MVCDynamicForms.DBLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
