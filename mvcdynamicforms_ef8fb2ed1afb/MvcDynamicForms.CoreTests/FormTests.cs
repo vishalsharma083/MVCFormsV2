@@ -92,21 +92,16 @@ namespace MvcDynamicForms.Tests
        
 
         [TestMethod()]
-        public void LoadFormDataTest()
+        public void SaveFormData_Test()
         {
             MvcDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             MongoDBLayer dblayer = new MongoDBLayer();
-            dblayer.Save<MvcDynamicForms.Form>(form);
-            
-            var jsonString = form.ToJson(true);
 
-            //dblayer.Save<System.String>(jsonString.ToString());
-
-
-            Assert.IsNotNull(jsonString);
-            Debug.WriteLine(jsonString);
-            Assert.Fail();
+            FormData formdata = new FormData();
+            formdata.ContentId = form.ContentId.ToString();
+            formdata.Content = form.ToJson();
+            dblayer.Save<FormData>(formdata);
         }
 
 

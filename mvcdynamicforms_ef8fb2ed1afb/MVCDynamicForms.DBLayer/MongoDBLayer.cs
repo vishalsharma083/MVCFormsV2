@@ -1,5 +1,9 @@
 ﻿using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MvcDynamicForms;
 using System;
 using System.Collections.Generic;
@@ -11,17 +15,25 @@ namespace MVCDynamicForms.DBLayer
 {
     public class MongoDBLayer : IDBLayer
     {
-        static string databaseName = ConfigurationManager.AppSettings["mongoDatabase"];
-        static MongoServer server = null;
-        MongoDatabase db = null;
+        static string _connectionString = "mongodb://172.16.120.246/?safe=true";
+        static string _databaseName = ConfigurationManager.AppSettings["mongoDatabase"];
+        static MongoServer _server = null;
+        static MongoDatabase _db = null;
         static MongoDBLayer()
         {
-            server = GetConnection();
+            _server = GetConnection();
+            BsonClassMap.RegisterClassMap<ContentBase>(cm =>
+            {
+                cm.AutoMap();
+                cm.SetIdMember(cm.GetMemberMap(c => c.Id));
+                cm.IdMemberMap.SetIdGenerator(BsonObjectIdGenerator.Instance);
+            });
 
             BsonClassMap.RegisterClassMap<Form>(cm =>
             {
                 cm.AutoMap();
                 cm.MapIdProperty(x => x.ContentId);
+                cm.IdMemberMap.SetIdGenerator(BsonObjectIdGenerator.Instance);
                 cm.MapProperty(x => x.InputFields);
                 cm.MapProperty(x => x.Fields);
                 cm.MapProperty(x => x.FieldPrefix);
@@ -29,12 +41,15 @@ namespace MVCDynamicForms.DBLayer
                 cm.MapProperty(x => x.Template);
             });
 
+
             BsonClassMap.RegisterClassMap<FormData>(cm =>
             {
                 cm.AutoMap();
-                cm.MapIdProperty(x => x.ContentId);
+                cm.MapProperty(x => x.ContentId);
                 cm.MapProperty(x => x.Content);
             });
+         
+            _db = _server.GetDatabase(_databaseName);
         }
         private static MongoServer GetConnection()
         {
@@ -57,28 +72,40 @@ namespace MVCDynamicForms.DBLayer
         }
         public MongoDBLayer()
         {
-            db = server.GetDatabase(databaseName);
+            
         }
 
         public void Save<T>(T val_) where T : ContentBase
         {
-            var coll = db.GetCollection<T>(typeof(T).ToString());
+            var coll = _db.GetCollection<T>(typeof(T).ToString());
             var writeConcernResult = coll.Save<T>(val_);
         }
 
         public T Get<T>(Guid id_) where T : ContentBase
         {
-            throw new NotImplementedException();
+            var result = _db.GetCollection<T>(typeof(T).ToString()).Find(Query.EQ("_id", id_.ToString()));
+            if (result!=null && result.Count()>0)
+            {
+                return result.Cast<T>().FirstOrDefault<T>();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void Delete<T>(Guid id_) where T : ContentBase
         {
-            throw new NotImplementedException();
+            var writeConcernResult = _db.GetCollection<T>(typeof(T).ToString()).Remove(Query.EQ("_id", id_.ToString()));            
         }
 
-        public void Update<T>(T val_) where T : ContentBase
+
+        public List<T> GetByTag<T>(Guid id_, string tag_) where T : ContentBase
         {
+            //var result = db.GetCollection<T>(typeof(T).ToString()).Find(Query.And(Query.EQ("_id", id_.ToString(),Query.ElemMatch("Tags")))));
+            //return result.ToList<T>();
             throw new NotImplementedException();
         }
     }
+
 }
