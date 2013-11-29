@@ -9,5 +9,6 @@ namespace MvcDynamicForms
     public class ContentBase
     {
         public object Id { get; set; }
+        public Guid ContentId { get; set; }
     }
 }

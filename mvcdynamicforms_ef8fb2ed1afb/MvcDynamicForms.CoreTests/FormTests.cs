@@ -99,7 +99,7 @@ namespace MvcDynamicForms.Tests
             MongoDBLayer dblayer = new MongoDBLayer();
 
             FormData formdata = new FormData();
-            formdata.ContentId = form.ContentId.ToString();
+            formdata.ContentId = form.ContentId;
             formdata.Content = form.ToJson();
             dblayer.Save<FormData>(formdata);
         }

@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.IdGenerators;
@@ -27,13 +28,12 @@ namespace MVCDynamicForms.DBLayer
                 cm.AutoMap();
                 cm.SetIdMember(cm.GetMemberMap(c => c.Id));
                 cm.IdMemberMap.SetIdGenerator(BsonObjectIdGenerator.Instance);
+                cm.MapMember(x => x.ContentId);
             });
 
             BsonClassMap.RegisterClassMap<Form>(cm =>
             {
                 cm.AutoMap();
-                cm.MapIdProperty(x => x.ContentId);
-                cm.IdMemberMap.SetIdGenerator(BsonObjectIdGenerator.Instance);
                 cm.MapProperty(x => x.InputFields);
                 cm.MapProperty(x => x.Fields);
                 cm.MapProperty(x => x.FieldPrefix);
@@ -45,7 +45,6 @@ namespace MVCDynamicForms.DBLayer
             BsonClassMap.RegisterClassMap<FormData>(cm =>
             {
                 cm.AutoMap();
-                cm.MapProperty(x => x.ContentId);
                 cm.MapProperty(x => x.Content);
             });
          
@@ -83,7 +82,7 @@ namespace MVCDynamicForms.DBLayer
 
         public T Get<T>(Guid id_) where T : ContentBase
         {
-            var result = _db.GetCollection<T>(typeof(T).ToString()).Find(Query.EQ("_id", id_.ToString()));
+            var result = _db.GetCollection<T>(typeof(T).ToString()).Find(Query.EQ("ContentId", id_));
             if (result!=null && result.Count()>0)
             {
                 return result.Cast<T>().FirstOrDefault<T>();

@@ -19,7 +19,6 @@ namespace MVCDynamicForms.DBLayer.Tests
             MvcDynamicForms.Form form = FormProvider.GetForm();
             form.ContentId = Guid.NewGuid();
             dblayer.Save<MvcDynamicForms.Form>(form);
-            //List<MvcDynamicForms.Response> responses = form.GetResponses(false);
         }
 
         [TestMethod()]
@@ -28,7 +27,7 @@ namespace MVCDynamicForms.DBLayer.Tests
             MongoDBLayer dblayer = new MongoDBLayer();
             MvcDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
-            dblayer.Save<FormData>(new FormData { ContentId = form.ContentId.ToString(), Content = form.ToJson(true) });
+            dblayer.Save<FormData>(new FormData { ContentId = form.ContentId, Content = form.ToJson(true) });
         }
 
         [TestMethod()]
@@ -37,7 +36,7 @@ namespace MVCDynamicForms.DBLayer.Tests
             MongoDBLayer dblayer = new MongoDBLayer();
             MvcDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
-            FormData formData = new FormData { ContentId = @"19c91d63-e3a2-4dae-bb3c-01efc0334b34", Content = form.ToJson(true) };
+            FormData formData = new FormData { ContentId = Guid.Parse("19c91d63-e3a2-4dae-bb3c-01efc0334b34"), Content = form.ToJson(true) };
             //formData.Tags = new List<string>();
             //formData.Tags.Add("Bar1");
             //formData.Tags.Add("Bar2");
@@ -67,7 +66,7 @@ namespace MVCDynamicForms.DBLayer.Tests
             MongoDBLayer dblayer = new MongoDBLayer();
 
             FormData expected = new FormData();
-            expected.ContentId = form.ContentId.ToString();
+            expected.ContentId = form.ContentId;
             expected.Content = form.ToJson();
             dblayer.Save<FormData>(expected);
             
@@ -88,7 +87,7 @@ namespace MVCDynamicForms.DBLayer.Tests
             MvcDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
 
-            FormData expected = new FormData { ContentId = form.ContentId.ToString(), Content = form.ToJson(true) };
+            FormData expected = new FormData { ContentId = form.ContentId, Content = form.ToJson(true) };
             expected.Tags = new List<string>();
             expected.Tags.Add("Test1");
             expected.Tags.Add("Test2");
