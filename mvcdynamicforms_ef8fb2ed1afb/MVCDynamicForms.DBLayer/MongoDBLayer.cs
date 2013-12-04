@@ -16,7 +16,6 @@ namespace MVCDynamicForms.DBLayer
 {
     public class MongoDBLayer : IDBLayer
     {
-        static string _connectionString = "mongodb://172.16.120.246/?safe=true";
         static string _databaseName = ConfigurationManager.AppSettings["mongoDatabase"];
         static MongoServer _server = null;
         static MongoDatabase _db = null;
@@ -47,7 +46,7 @@ namespace MVCDynamicForms.DBLayer
                 cm.AutoMap();
                 cm.MapProperty(x => x.Content);
             });
-         
+
             _db = _server.GetDatabase(_databaseName);
         }
         private static MongoServer GetConnection()
@@ -71,7 +70,7 @@ namespace MVCDynamicForms.DBLayer
         }
         public MongoDBLayer()
         {
-            
+
         }
 
         public void Save<T>(T val_) where T : ContentBase
@@ -83,7 +82,7 @@ namespace MVCDynamicForms.DBLayer
         public T Get<T>(Guid id_) where T : ContentBase
         {
             var result = _db.GetCollection<T>(typeof(T).ToString()).Find(Query.EQ("ContentId", id_));
-            if (result!=null && result.Count()>0)
+            if (result != null && result.Count() > 0)
             {
                 return result.Cast<T>().FirstOrDefault<T>();
             }
@@ -95,15 +94,71 @@ namespace MVCDynamicForms.DBLayer
 
         public void Delete<T>(Guid id_) where T : ContentBase
         {
-            var writeConcernResult = _db.GetCollection<T>(typeof(T).ToString()).Remove(Query.EQ("_id", id_.ToString()));            
+            var writeConcernResult = _db.GetCollection<T>(typeof(T).ToString()).Remove(Query.EQ("ContentId", id_));
         }
 
 
-        public List<T> GetByTag<T>(Guid id_, string tag_) where T : ContentBase
+        public List<T> GetByTag<T>(string tag_) where T : ContentBase
         {
-            //var result = db.GetCollection<T>(typeof(T).ToString()).Find(Query.And(Query.EQ("_id", id_.ToString(),Query.ElemMatch("Tags")))));
-            //return result.ToList<T>();
-            throw new NotImplementedException();
+            //var collection = _db.GetCollection<T>(typeof(T).ToString());
+            //var textSearchCommand = new CommandDocument
+            //{
+            //    {"text",collection.Name},
+            //    {"search",tag_},
+            //    {"filter",BsonValue.Create(Query.EQ("ContentId", id_))}
+            //};
+
+            //var textSearchCommand = new CommandDocument
+            //{
+            //    {"text",collection.Name},
+            //    {"search",tag_},
+            //};
+
+
+            return GetByTagAndContentId<T>(Guid.Empty, tag_);
+             // TODO : Check for commandresult here before looping on response
+
+            //List<T> results = new List<T>();
+            //foreach (BsonDocument doc in commandResult.Response["results"].AsBsonArray)
+            //{
+            //    results.Add(BsonSerializer.Deserialize<T>(doc["obj"] as BsonDocument));
+            //}
+
+            //return results;
+        }
+
+        public List<T> GetByTagAndContentId<T>(Guid id_, string tag_) where T : ContentBase
+        {
+            var collection = _db.GetCollection<T>(typeof(T).ToString());
+            CommandDocument textSearchCommand;
+            if (id_ != Guid.Empty)
+            {
+                textSearchCommand = new CommandDocument
+            {
+                {"text",collection.Name},
+                {"search",tag_},
+                {"filter",BsonValue.Create(Query.EQ("ContentId", id_))}
+            };
+            }
+            else
+            {
+                textSearchCommand = new CommandDocument
+                {
+                    {"text",collection.Name},
+                    {"search",tag_},
+                };
+            }
+
+            var commandResult = collection.Database.RunCommand(textSearchCommand);
+            // TODO : Check for commandresult here before looping on response
+
+            List<T> results = new List<T>();
+            foreach (BsonDocument doc in commandResult.Response["results"].AsBsonArray)
+            {
+                results.Add(BsonSerializer.Deserialize<T>(doc["obj"] as BsonDocument));
+            }
+
+            return results;
         }
     }
 

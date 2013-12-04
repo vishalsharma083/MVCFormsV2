@@ -11,6 +11,7 @@ namespace MVCDynamicForms.DBLayer
         void Save<T>(T val_) where T : ContentBase;
         T Get<T>(Guid id_) where T : ContentBase;
         void Delete<T>(Guid id_) where T : ContentBase;
-        List<T> GetByTag<T>(Guid id_, string tag_) where T: ContentBase;
+        List<T> GetByTag<T>(string tag_) where T: ContentBase;
+        List<T> GetByTagAndContentId<T>(Guid id_, string tag_) where T : ContentBase;
     }
 }
