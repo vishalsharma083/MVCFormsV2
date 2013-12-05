@@ -1,0 +1,160 @@
+@using MVCDynamicForms.Fields;
+@model MVCDynamicForms.Form
+@section MainContent {
+    <h2>Create Dynamic Form</h2>
+    <div class="row">
+        <div class="span16">
+        </div>
+        <div class="span12">
+            @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+                <fieldset class="form-stacked">
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="flt-pad">
+                        <label for="formname">
+                            Site</label>
+                        <div>
+                            @Html.DropDownListFor(model => model.SiteId, ViewData["Sites"] as SelectList)
+                        </div>
+                    </div>
+                    <div class="flt-pad">
+                        <label for="formname">
+                            Form Name</label>
+                        <div>
+                            @Html.TextBoxFor(model => model.FormName, new { maxlength = "150", Class = "xlarge" })
+                            @Html.ValidationMessageFor(model => model.FormName)
+                        </div>
+                    </div>
+                    <div class="flt">
+                        <label for="active">
+                            Status</label>
+                        <div>
+                            <div class="input-append">
+                                <span class="add-on">Active</span>
+                                <label class="add-on active">
+                                    <input type="checkbox" name="Active" id="Active" value="true" @(Model.IsActive ? "checked='checked'" : "") /></label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-stacked">
+                    <legend>Form Fields</legend>
+                    <table id="fieldTable" class="zebra-striped">
+                        <thead>
+                            <tr id="qrow1">
+                                <td>Field Name
+                                </td>
+                                <td>Type
+                                </td>
+                                <td>
+                                    <input type="button" value="Add Row" onclick="addFieldRow();" />
+                                </td>
+                            </tr>
+                        </thead>
+                        @{int rowCounter = 2;}
+
+                        @Html.ValidationMessageFor(model => Model.Fields)
+                        @if (Model.Fields != null)
+                        {
+                            foreach (Field param in Model.Fields)
+                            {
+                            <tr id="qrow">
+                                <td>
+                                    <input class="mini" name="fieldnameqrow"+@rowCounter id="fieldnameqrow"+@rowCounter
+                                type="text" maxlength="50" value="@param.Key" />
+                                    @Html.ValidationMessageFor(model => param.Key)
+                                </td>
+                                <td>
+                                    <a href="JavaScript:removeFieldRow('qrow@rowCounter')">Delete</a>
+                                </td>
+                            </tr>
+                                rowCounter++;
+                            }
+                        }
+
+                    </table>
+                    <table>
+                        <tr id="templateqrow" style="display: none;">
+                            <td>
+                                <input class="mini" name="fieldnameqrow0" id="fieldnameqrow0" type="text" maxlength="50" />
+                            </td>
+                            <td>
+                                <select data-placeholder="..." name="fieldtypeqrow0" id="fieldtypeqrow0" onchange="document.getElementById('fieldregexqrow0').style.display='none';if(this.value=='Formatted'){document.getElementById('fieldregexqrow0').style.display='block';}">
+                                    <option value="TextBox">TextBox</option>
+                                    <option value="TextArea">TextArea</option>
+                                    <option value="CheckBox">CheckBox</option>
+                                    <option value="CheckBoxList">CheckBoxList</option>
+                                    <option value="ListBox">ListBox</option>
+                                    <option value="RadioBox">RadioBox</option>
+                                    <option value="RadioBoxList">RadioBoxList</option>
+                                </select>
+                                <input class="large" name="fieldregexqrow0" style="display: none;" id="fieldregexqrow0" type="text" maxlength="50" />
+                            </td>
+                            <td>
+                                <a href="JavaScript:removeFieldRow('qrow0')">Delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <div class="flt-pad30">
+                    <input type="submit" class="btn primary" onclick="javascript: return Validation();" value="Save changes" />
+                    @Html.ActionLink("Back to List", "Index", new { id = Model.SiteId })
+                </div>
+            }
+        </div>
+    </div>
+<link rel="stylesheet" type="text/css" href="../../Content/bootstrap.min.css" />
+    <link href="/Content/chosen.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/chosen.jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function addFieldRow() {
+            var lastid = "qrow0;"
+            var rowHtml = new String();
+            var fieldTableID = "#fieldTable";
+            $(fieldTableID).find("tr").each(function () {
+                lastid = $(this).attr("id");
+            });
+            if (IsValid()) {
+                rowHtml = $("#templateqrow").html();
+                lastidcounter = lastid.replace("qrow", "");
+                //increment counter
+                lastidcounter++;
+                //replace ids
+                rowHtml = rowHtml.replace(new RegExp("qrow0", 'g'), "qrow" + lastidcounter);
+                $(fieldTableID).append("<tr id='qrow" + lastidcounter + "'>" + rowHtml + "</tr>");
+            }
+            else {
+                alert("Field Name is required.");
+                $("#fieldnameqrow" + lastidcounter + "").focus();
+            }
+        }
+
+        function removeFieldRow(id) {
+            $("#" + id).remove();
+        }
+
+        function Validation() {
+            if (IsValid()) {
+                return true;
+            }
+            else {
+                alert("Field Name is required.");
+                return false;
+            }
+        }
+
+        function IsValid() {
+            var valid = true;
+            $("table input.mini").each(function (i) {
+                if ($(this).attr("id") != "fieldnameqrow0" && $(this).attr("id") != "fieldnameqrow") {
+                    if ($(this).val() == "") {
+                        valid = false;
+                    }
+                }
+            });
+            return valid;
+        }
+    </script>
+}
