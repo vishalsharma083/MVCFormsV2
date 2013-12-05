@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 
-namespace MvcDynamicForms.Utilities
+namespace MVCDynamicForms.Utilities
 {
     public static class SerializationUtility
     {

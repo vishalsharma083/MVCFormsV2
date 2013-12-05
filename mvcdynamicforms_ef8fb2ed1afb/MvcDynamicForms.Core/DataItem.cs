@@ -1,6 +1,6 @@
 ﻿
 using System;
-namespace MvcDynamicForms
+namespace MVCDynamicForms
 {
     /// <summary>
     /// Stores arbitrary data.

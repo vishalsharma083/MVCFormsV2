@@ -8,7 +8,7 @@
     <ProjectGuid>{9624E64A-013F-41E8-84BA-C34EE744685E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcDynamicForms</RootNamespace>
+    <RootNamespace>MVCDynamicForms</RootNamespace>
     <AssemblyName>MvcDynamicForms</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -124,6 +124,7 @@
     <Compile Include="Response.cs" />
     <Compile Include="SerializationUtility.cs" />
     <Compile Include="Site.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

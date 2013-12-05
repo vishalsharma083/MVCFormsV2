@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
-using MvcDynamicForms.Fields;
-using MvcDynamicForms.Demo.Models;
+using MVCDynamicForms.Fields;
+using MVCDynamicForms.Demo.Models;
 
-namespace MvcDynamicForms.Demo.Controllers
+namespace MVCDynamicForms.Demo.Controllers
 {
     public class TestController : Controller
     {

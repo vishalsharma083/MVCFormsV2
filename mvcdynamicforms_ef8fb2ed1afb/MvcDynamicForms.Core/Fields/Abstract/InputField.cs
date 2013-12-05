@@ -5,7 +5,7 @@ using System.Text;
 using System.Web.Mvc;
 using System.Text.RegularExpressions;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
 
     public delegate void ValidatedEventHandler(InputField inputField, InputFieldValidationEventArgs e);

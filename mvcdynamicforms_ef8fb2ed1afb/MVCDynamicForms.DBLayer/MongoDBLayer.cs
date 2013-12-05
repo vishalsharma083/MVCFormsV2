@@ -5,7 +5,7 @@ using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
-using MvcDynamicForms;
+using MVCDynamicForms;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,11 +33,11 @@ namespace MVCDynamicForms.DBLayer
             BsonClassMap.RegisterClassMap<Form>(cm =>
             {
                 cm.AutoMap();
-                cm.MapProperty(x => x.InputFields);
+                cm.UnmapProperty(x => x.InputFields);
                 cm.MapProperty(x => x.Fields);
                 cm.MapProperty(x => x.FieldPrefix);
                 cm.MapProperty(x => x.Serialize);
-                cm.MapProperty(x => x.Template);
+                cm.MapProperty(x => x.Template);                
             });
 
 

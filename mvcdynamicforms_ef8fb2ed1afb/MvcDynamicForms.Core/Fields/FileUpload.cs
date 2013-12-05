@@ -8,7 +8,7 @@ using System.IO;
 using System.Web.Mvc;
 using System.Xml.Serialization;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     public delegate void FilePostedEventHandler( FileUpload fileUploadField, EventArgs e);
 

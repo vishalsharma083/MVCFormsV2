@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MvcDynamicForms
+namespace MVCDynamicForms
 {
     public static class RegexPatterns
     {

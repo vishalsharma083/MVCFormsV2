@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using MvcDynamicForms.Fields;
-using MvcDynamicForms.Utilities;
+using MVCDynamicForms.Fields;
+using MVCDynamicForms.Utilities;
 
-namespace MvcDynamicForms
+namespace MVCDynamicForms
 {
     class DynamicFormModelBinder : IModelBinder
     {

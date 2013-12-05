@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MVCDynamicForms.DBLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcDynamicForms.Demo.Models;
-using MvcDynamicForms;
+using MVCDynamicForms.Demo.Models;
+using MVCDynamicForms;
 namespace MVCDynamicForms.DBLayer.Tests
 {
     [TestClass()]
@@ -16,17 +16,17 @@ namespace MVCDynamicForms.DBLayer.Tests
         public void SaveFormStructureTest()
         {
             MongoDBLayer dblayer = new MongoDBLayer();
-            MvcDynamicForms.Form form = FormProvider.GetForm();
+            MVCDynamicForms.Form form = FormProvider.GetForm();
             form.ContentId = Guid.NewGuid();
             form.SiteId = Guid.NewGuid();
-            dblayer.Save<MvcDynamicForms.Form>(form);
+            dblayer.Save<MVCDynamicForms.Form>(form);
         }
 
         [TestMethod()]
         public void SaveFormDataTest()
         {
             MongoDBLayer dblayer = new MongoDBLayer();
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             form.SiteId = Guid.NewGuid();
             dblayer.Save<FormData>(new FormData { ContentId = form.ContentId, Content = form.ToJson(true), SiteId = form.SiteId });
@@ -36,7 +36,7 @@ namespace MVCDynamicForms.DBLayer.Tests
         public void SaveFormDataWithTagsTest()
         {
             MongoDBLayer dblayer = new MongoDBLayer();
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             FormData formData = new FormData { ContentId = form.ContentId, Content = form.ToJson(true) };
             formData.Tags = new List<string>();
@@ -63,7 +63,7 @@ namespace MVCDynamicForms.DBLayer.Tests
         [TestMethod()]
         public void FormDataGetTest()
         {
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             MongoDBLayer dblayer = new MongoDBLayer();
 

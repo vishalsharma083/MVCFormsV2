@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MvcDynamicForms;
+using MVCDynamicForms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvcDynamicForms.Demo.Models;
+using MVCDynamicForms.Demo.Models;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using MVCDynamicForms.DBLayer;
-namespace MvcDynamicForms.Tests
+namespace MVCDynamicForms.Tests
 {
     [TestClass()]
     public class FormTests
@@ -19,7 +19,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void RenderJsonScript_NoFormData_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetForm();
+            MVCDynamicForms.Form form = FormProvider.GetForm();
             form.ContentId = Guid.NewGuid();
             var jsonString = form.ToJson();
             Assert.IsNotNull(jsonString);
@@ -30,7 +30,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void RenderJsonScript_WithFormData_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             var jsonString = form.ToJson();
             Assert.IsNotNull(jsonString);
@@ -41,7 +41,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void RenderJsonScript_NoFormData_PrepareStructure_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetForm();
+            MVCDynamicForms.Form form = FormProvider.GetForm();
             form.ContentId = Guid.NewGuid();
             var jsonString = form.ToJson(true);
             Assert.IsNotNull(jsonString);
@@ -52,7 +52,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void RenderJsonScript_WithFormData_PrepareStructure_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             var jsonString = form.ToJson(true);
 
@@ -65,7 +65,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void RenderDataScript_NoFormData_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetForm();
+            MVCDynamicForms.Form form = FormProvider.GetForm();
             form.ContentId = Guid.NewGuid();
             var jsonString = form.RenderDataScript("temp");
             Assert.IsNotNull(jsonString);
@@ -75,7 +75,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void RenderDataScript_WithFormData_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             var jsonString = form.RenderDataScript("temp");
             Assert.IsNotNull(jsonString);
@@ -94,7 +94,7 @@ namespace MvcDynamicForms.Tests
         [TestMethod()]
         public void SaveFormData_Test()
         {
-            MvcDynamicForms.Form form = FormProvider.GetFormWithData();
+            MVCDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
             MongoDBLayer dblayer = new MongoDBLayer();
 

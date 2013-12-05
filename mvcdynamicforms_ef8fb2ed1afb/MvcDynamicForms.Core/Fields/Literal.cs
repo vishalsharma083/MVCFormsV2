@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Represents html to be rendered on the form.

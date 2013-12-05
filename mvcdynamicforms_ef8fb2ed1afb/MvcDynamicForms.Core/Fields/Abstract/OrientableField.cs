@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Represents and input field that can be displayed either vertically or horizontally.

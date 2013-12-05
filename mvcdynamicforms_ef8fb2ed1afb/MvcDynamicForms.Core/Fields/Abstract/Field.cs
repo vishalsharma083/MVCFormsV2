@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MvcDynamicForms.Utilities;
+using MVCDynamicForms.Utilities;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Represents a dynamically generated form field.

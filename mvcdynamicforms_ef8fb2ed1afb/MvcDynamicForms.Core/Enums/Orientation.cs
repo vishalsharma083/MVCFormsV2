@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     public enum Orientation
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using MvcDynamicForms.Fields;
+using MVCDynamicForms.Fields;
 using System.Text.RegularExpressions;
 
-namespace MvcDynamicForms
+namespace MVCDynamicForms
 {
     /// <summary>
     /// A collection of Field objects.

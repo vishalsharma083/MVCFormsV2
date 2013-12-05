@@ -1,4 +1,4 @@
-﻿namespace MvcDynamicForms
+﻿namespace MVCDynamicForms
 {
     /// <summary>
     /// Class that represents the end user's response to an InputField object.

@@ -1,7 +1,7 @@
 ﻿
 using System.Text;
 using System.Collections.Generic;
-namespace MvcDynamicForms
+namespace MVCDynamicForms
 {
     /// <summary>
     /// Static class containing place holder tokens to be used with form and field templates.

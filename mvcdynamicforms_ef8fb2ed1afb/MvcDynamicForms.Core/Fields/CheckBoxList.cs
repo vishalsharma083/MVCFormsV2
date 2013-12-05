@@ -4,7 +4,7 @@ using System.Text;
 using System.Web.Mvc;
 using System;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Represents a list of html checkbox inputs.

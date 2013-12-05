@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Represents an html textbox input element.

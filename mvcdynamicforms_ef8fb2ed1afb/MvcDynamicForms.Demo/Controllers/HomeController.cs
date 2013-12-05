@@ -3,13 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MvcDynamicForms.Demo.Models;
-using MvcDynamicForms;
+using MVCDynamicForms.Demo.Models;
+using MVCDynamicForms;
+using MVCDynamicForms.DBLayer;
+using MVCDynamicForms.Fields;
 
 namespace MVCDynamicForms.Demo.Controllers
 {
     public class HomeController : Controller
     {
+        MongoDBLayer dblayer = new MongoDBLayer();
+        public ActionResult Create()
+        {
+            ViewData["Sites"] = GetSiteList();
+            return View( new Form());
+        }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            Form form = ConstructFormDefinition(collection);
+            form.ContentId= Guid.NewGuid();
+            dblayer.Save<Form>(form);
+            return View(new Form());
+        }
+
+        private SelectList GetSiteList()
+        {
+            List<Site> sites = dblayer.GetAll<Site>();
+            return new SelectList(sites, "ContentId", "SiteName");
+        }
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
@@ -96,6 +119,60 @@ namespace MVCDynamicForms.Demo.Controllers
             {
                 field.Key = key++.ToString();
             }
+        }
+        public Form ConstructFormDefinition(FormCollection form_)
+        {
+            Form dynamicFormDefinition = null;
+
+            if (form_ != null)
+            {
+                dynamicFormDefinition = new Form();
+                dynamicFormDefinition.FormName = form_["FormName"];
+                dynamicFormDefinition.IsActive = Convert.ToBoolean(form_["Active"]);
+                dynamicFormDefinition.SiteId = Guid.Parse(form_["SiteId"]);
+                
+                for (int iCounter = 1; iCounter <= 50; iCounter++)
+                {
+                    //Check whether target field is present for this iteration, if not present consider ending the loop
+                    if (form_["fieldnameqrow" + iCounter.ToString()] != null)
+                    {
+                        switch (Utility.GetFormFieldValue(form_, "fieldtypeqrow" + iCounter.ToString()))
+                        {
+                            case "TextBox":
+                                TextBox field = new TextBox();
+                                field.ResponseTitle = Utility.GetFormFieldValue(form_, "fieldnameqrow" + iCounter.ToString()).Replace(" ", "-");
+                                dynamicFormDefinition.AddFields(field);
+                                break;
+                            case "TextArea":
+                                TextArea textArea = new TextArea();
+                                textArea.ResponseTitle = Utility.GetFormFieldValue(form_, "fieldnameqrow" + iCounter.ToString()).Replace(" ", "-");
+                                dynamicFormDefinition.AddFields(textArea);
+                                break;
+                            case "CheckBox":
+                                CheckBox checkBox = new CheckBox();
+                                checkBox.ResponseTitle = Utility.GetFormFieldValue(form_, "fieldnameqrow" + iCounter.ToString()).Replace(" ", "-");
+                                dynamicFormDefinition.AddFields(checkBox);
+                                break;
+                            case "CheckBoxList":
+                                CheckBoxList checkBoxList = new CheckBoxList();
+                                checkBoxList.ResponseTitle = Utility.GetFormFieldValue(form_, "fieldnameqrow" + iCounter.ToString()).Replace(" ", "-");
+                                dynamicFormDefinition.AddFields(checkBoxList);
+                                break;
+                            case "ListBox":
+                                Select select = new Select();
+                                select.ResponseTitle = Utility.GetFormFieldValue(form_, "fieldnameqrow" + iCounter.ToString()).Replace(" ", "-");
+                                dynamicFormDefinition.AddFields(select);
+                                break;
+                            case "RadioBoxList":
+                                RadioList radioList = new RadioList();
+                                radioList.ResponseTitle = Utility.GetFormFieldValue(form_, "fieldnameqrow" + iCounter.ToString()).Replace(" ", "-");
+                                dynamicFormDefinition.AddFields(radioList);
+                                break;
+                        }
+                    }
+                }
+            }
+            return dynamicFormDefinition;
         }
     }
 }

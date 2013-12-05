@@ -1,4 +1,4 @@
-﻿namespace MvcDynamicForms.Fields
+﻿namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Possible types of Field objects. This enumeration can be used when constructing Field objects from external data.

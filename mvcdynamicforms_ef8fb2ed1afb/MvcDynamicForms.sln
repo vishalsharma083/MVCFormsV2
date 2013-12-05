@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Core", "MvcDynamicForms.Core\MvcDynamicForms.Core.csproj", "{9624E64A-013F-41E8-84BA-C34EE744685E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDynamicForms.Demo", "MVCDynamicForms.Demo\MVCDynamicForms.Demo.csproj", "{0E7A7664-8FE4-4771-B5A4-BDEB74C9F199}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDynamicForms.Web", "MVCDynamicForms.Demo\MVCDynamicForms.Web.csproj", "{0E7A7664-8FE4-4771-B5A4-BDEB74C9F199}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCDynamicForms.DBLayer", "MVCDynamicForms.DBLayer\MVCDynamicForms.DBLayer.csproj", "{2FE9A8F1-EF98-47D8-860A-CA3D0A4A9A59}"
 EndProject

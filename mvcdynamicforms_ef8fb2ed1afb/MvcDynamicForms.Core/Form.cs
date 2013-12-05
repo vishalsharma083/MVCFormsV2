@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using MvcDynamicForms.Fields;
-using MvcDynamicForms.Utilities;
+using MVCDynamicForms.Fields;
+using MVCDynamicForms.Utilities;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 
-namespace MvcDynamicForms
+namespace MVCDynamicForms
 {
     /// <summary>
     /// Represents an html input form that can be dynamically rendered at runtime.
@@ -17,6 +17,8 @@ namespace MvcDynamicForms
     [ModelBinder(typeof(DynamicFormModelBinder))]
     public class Form :ContentBase
     {
+        public bool IsActive { get; set; }
+        public string FormName { get; set; }
         public Guid SiteId { get; set; }
         private string _fieldPrefix = "MvcDynamicField_";
         private FieldList _fields;
@@ -265,5 +267,7 @@ namespace MvcDynamicForms
                 }
             }
         }
+
+
     }
 }

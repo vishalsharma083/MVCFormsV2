@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using MvcDynamicForms.Fields;
+using MVCDynamicForms.Fields;
 using System;
 
-namespace MvcDynamicForms.Demo.Models
+namespace MVCDynamicForms.Demo.Models
 {
     public static class FormProvider
     {

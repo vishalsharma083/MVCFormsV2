@@ -5,7 +5,7 @@ using System.Text;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
-namespace MvcDynamicForms.Fields
+namespace MVCDynamicForms.Fields
 {
     /// <summary>
     /// Represents an html input field that contains choices for the end user to choose from.
