@@ -1,0 +1,31 @@
+﻿@model MvcDynamicForms.Site
+
+@{
+    ViewBag.Title = "Details";
+}
+@section MainContent { 
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Site</legend>
+
+    <div class="display-label">SiteName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteName)
+    </div>
+
+    <div class="display-label">CreatedOn</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedOn)
+    </div>
+
+    <div class="display-label">CreatedBy</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ContentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    }

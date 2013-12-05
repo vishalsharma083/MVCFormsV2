@@ -10,5 +10,6 @@ namespace MvcDynamicForms
     {
         public string Content { get; set; }
         public List<string> Tags { get; set; }
+        public Guid SiteId { get; set; }
     }
 }

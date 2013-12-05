@@ -18,6 +18,7 @@ namespace MVCDynamicForms.DBLayer.Tests
             MongoDBLayer dblayer = new MongoDBLayer();
             MvcDynamicForms.Form form = FormProvider.GetForm();
             form.ContentId = Guid.NewGuid();
+            form.SiteId = Guid.NewGuid();
             dblayer.Save<MvcDynamicForms.Form>(form);
         }
 
@@ -27,7 +28,8 @@ namespace MVCDynamicForms.DBLayer.Tests
             MongoDBLayer dblayer = new MongoDBLayer();
             MvcDynamicForms.Form form = FormProvider.GetFormWithData();
             form.ContentId = Guid.NewGuid();
-            dblayer.Save<FormData>(new FormData { ContentId = form.ContentId, Content = form.ToJson(true) });
+            form.SiteId = Guid.NewGuid();
+            dblayer.Save<FormData>(new FormData { ContentId = form.ContentId, Content = form.ToJson(true), SiteId = form.SiteId });
         }
 
         [TestMethod()]
@@ -84,12 +86,20 @@ namespace MVCDynamicForms.DBLayer.Tests
         public void GetWithTagsTest()
         {
             MongoDBLayer dblayer = new MongoDBLayer();
-
             List<FormData> actual = new List<FormData>();
-
             actual = dblayer.GetByTagAndContentId<FormData>(Guid.Parse("19c91d63-e3a2-4dae-bb3c-01efc0334b34"), "foo1");
+            Assert.IsNotNull(actual);
+            Assert.IsTrue(actual.Count > 0);
+            Assert.IsNotNull(actual.Where(x => x.Tags.Contains("foo1")).FirstOrDefault<FormData>());
+            Assert.AreEqual(actual.Where(x => x.Tags.Contains("foo1")).FirstOrDefault<FormData>().ContentId, Guid.Parse("19c91d63-e3a2-4dae-bb3c-01efc0334b34"));
+        }
 
+        [TestMethod()]
+        public void GetWithTagsTest2()
+        {
+            MongoDBLayer dblayer = new MongoDBLayer();
+            List<FormData> actual = new List<FormData>();
+            actual = dblayer.GetByTagAndContentId<FormData>(Guid.Parse("19c91d63-e3a2-4dae-bb3c-01efc0334b34"), "foo1");
         }
     }
-  
 }

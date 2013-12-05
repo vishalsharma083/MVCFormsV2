@@ -47,6 +47,11 @@ namespace MVCDynamicForms.DBLayer
                 cm.MapProperty(x => x.Content);
             });
 
+            BsonClassMap.RegisterClassMap<Site>(cm =>
+            {
+                cm.AutoMap();
+            });
+
             _db = _server.GetDatabase(_databaseName);
         }
         private static MongoServer GetConnection()
@@ -100,31 +105,7 @@ namespace MVCDynamicForms.DBLayer
 
         public List<T> GetByTag<T>(string tag_) where T : ContentBase
         {
-            //var collection = _db.GetCollection<T>(typeof(T).ToString());
-            //var textSearchCommand = new CommandDocument
-            //{
-            //    {"text",collection.Name},
-            //    {"search",tag_},
-            //    {"filter",BsonValue.Create(Query.EQ("ContentId", id_))}
-            //};
-
-            //var textSearchCommand = new CommandDocument
-            //{
-            //    {"text",collection.Name},
-            //    {"search",tag_},
-            //};
-
-
             return GetByTagAndContentId<T>(Guid.Empty, tag_);
-             // TODO : Check for commandresult here before looping on response
-
-            //List<T> results = new List<T>();
-            //foreach (BsonDocument doc in commandResult.Response["results"].AsBsonArray)
-            //{
-            //    results.Add(BsonSerializer.Deserialize<T>(doc["obj"] as BsonDocument));
-            //}
-
-            //return results;
         }
 
         public List<T> GetByTagAndContentId<T>(Guid id_, string tag_) where T : ContentBase
@@ -134,11 +115,11 @@ namespace MVCDynamicForms.DBLayer
             if (id_ != Guid.Empty)
             {
                 textSearchCommand = new CommandDocument
-            {
-                {"text",collection.Name},
-                {"search",tag_},
-                {"filter",BsonValue.Create(Query.EQ("ContentId", id_))}
-            };
+                {
+                    {"text",collection.Name},
+                    {"search",tag_},
+                    {"filter",BsonValue.Create(Query.EQ("ContentId", id_))}
+                };
             }
             else
             {
@@ -159,6 +140,22 @@ namespace MVCDynamicForms.DBLayer
             }
 
             return results;
+        }
+
+
+        public List<T> GetAll<T>() where T : ContentBase
+        {
+            List<T> retVal = new List<T>();
+            MongoCollection collection = _db.GetCollection<T>(typeof(T).ToString());
+            MongoCursor<T> mongoCursor = collection.FindAllAs<T>();
+            using (var enumerator = mongoCursor.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    retVal.Add(enumerator.Current);
+                }
+            }
+            return retVal;
         }
     }
 

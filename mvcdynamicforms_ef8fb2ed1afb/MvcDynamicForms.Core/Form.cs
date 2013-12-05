@@ -17,6 +17,7 @@ namespace MvcDynamicForms
     [ModelBinder(typeof(DynamicFormModelBinder))]
     public class Form :ContentBase
     {
+        public Guid SiteId { get; set; }
         private string _fieldPrefix = "MvcDynamicField_";
         private FieldList _fields;
         public string Template { get; set; }

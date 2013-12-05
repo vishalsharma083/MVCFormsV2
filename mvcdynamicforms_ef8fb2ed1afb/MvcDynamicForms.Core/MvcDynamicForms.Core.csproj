@@ -123,6 +123,7 @@
     <Compile Include="RegexPatterns.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="SerializationUtility.cs" />
+    <Compile Include="Site.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

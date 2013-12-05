@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +213,11 @@
     <Content Include="Views\Shared\site.cshtml" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Test\index.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Site\Details.cshtml" />
+    <Content Include="Views\Site\Create.cshtml" />
+    <Content Include="Views\Site\Edit.cshtml" />
+    <Content Include="Views\Site\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,6 +229,10 @@
     <ProjectReference Include="..\MvcDynamicForms.Core\MvcDynamicForms.Core.csproj">
       <Project>{9624e64a-013f-41e8-84ba-c34ee744685e}</Project>
       <Name>MvcDynamicForms.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCDynamicForms.DBLayer\MVCDynamicForms.DBLayer.csproj">
+      <Project>{2fe9a8f1-ef98-47d8-860a-ca3d0a4a9a59}</Project>
+      <Name>MVCDynamicForms.DBLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
