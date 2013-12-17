@@ -1,23 +1,86 @@
-﻿@{
- ViewBag.Title = "MVC Dynamic Forms"; 
+﻿@model IEnumerable<MVCDynamicForms.Form>
+@{
+    ViewBag.Title = "Index";
 }
+@section MainContent {
+<h2>
+    Showing All forms in site</h2>
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
-    <p>
-        This web application demonstrates how you can use MVC Dynamic Forms. To learn more,
-        study these files in the MvcDynamicForms.Demo project:
-    </p>
-    <ul>
-        <li><b>/Models/FormProvider.cs</b> - Shows how to construct the Form and Field objects.</li>
-        <li><b>/Controllers/HomeController.cs</b> - Shows how to use the Form and Field objects
-            in your web applicaiton.</li>
-        <li><b>/Views/Home/Demo.aspx</b> - Shows how to render the form in your views and demonstrates
-            some basic client side funcationality.</li>
-        <li><b>/Content/DynamicForm.css</b> - Explains how to style the dynamically generated
-            form.</li>
-        <li><b>/Views/Home/Responses.aspx</b> - Shows how to make use of the user's responses
-            to dynamically generated form fields.</li>
-    </ul>
+
+<div id ="div_container">
+<table style="width: 1090px; color: #333;">
+    <tr>
+        <th>
+            Action
+        </th>
+        <th>
+            FormName
+        </th>
+        <th>
+            FormGuid
+        </th>
+      @*  <th>
+            CreateDate
+        </th>
+        <th>
+            CreatedBy
+        </th>
+        <th>
+            ModifiedDate
+        </th>
+        <th>
+            ModifiedBy
+        </th>*@
+        <th>
+            Active
+        </th>
+@*        <th>
+            Description
+        </th>*@
+        <th>
+            Show Form Data
+        </th>
+        <th>
+            Add Form Data
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ContentId }) |
+                @Html.ActionLink("Delete", "DeleteDynamicForm", new { formId = item.Id, siteid = item.SiteId }, new { onclick = "return confirm('Deleting this form will block the content on lending pages. Do you still want to delete this form');" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ContentId })
+            </td>
+            <td>
+                @item.FormName
+            </td>
+            <td>
+                @item.Id
+            </td>
+        @*    <td>
+                @String.Format("{0:g}", item.CreateDate.ToString("dd MMM, yyyy hh:mm:ss"))
+            </td>
+            <td>
+                @item.CreatedBy
+            </td>
+            <td>
+                @String.Format("{0:g}", item.ModifiedDate.ToString("dd MMM, yyyy hh:mm:ss"))
+            </td>
+            <td>
+                @item.ModifiedBy
+            </td>*@
+            <td>
+                @item.IsActive
+            </td>
+            <td>
+                @Html.ActionLink("Click Here", "ShowFormData", "DynamicForms", new { formGUID = item.ContentId }, null)
+            </td>
+            <td>
+                @*@Html.ActionLink("Click Here", "AddData", "DynamicForms", new { id = item.Id}, null)*@
+                  @Html.ActionLink("Click Here", "AddData", "DynamicForms", new { formGUID = item.ContentId }, null)
+            </td>
+        </tr>
+    }
+</table>
+</div>}

@@ -51,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DynamicQuery\DynamicQuery.csproj">
+      <Project>{f285ceb0-4108-440c-ad94-1c1a7c159d7c}</Project>
+      <Name>DynamicQuery</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcDynamicForms.Core\MvcDynamicForms.Core.csproj">
       <Project>{9624e64a-013f-41e8-84ba-c34ee744685e}</Project>
       <Name>MvcDynamicForms.Core</Name>

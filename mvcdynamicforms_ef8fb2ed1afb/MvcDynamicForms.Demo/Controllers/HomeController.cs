@@ -25,7 +25,8 @@ namespace MVCDynamicForms.Demo.Controllers
             Form form = ConstructFormDefinition(collection);
             form.ContentId= Guid.NewGuid();
             dblayer.Save<Form>(form);
-            return View(new Form());
+            ViewData["Sites"] = GetSiteList();
+            return View(form);
         }
 
         private SelectList GetSiteList()
@@ -35,9 +36,7 @@ namespace MVCDynamicForms.Demo.Controllers
         }
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
-            return View();
+            return View(dblayer.GetAll<Form>());
         }
 
         public ActionResult About()
@@ -174,5 +173,6 @@ namespace MVCDynamicForms.Demo.Controllers
             }
             return dynamicFormDefinition;
         }
+
     }
 }
