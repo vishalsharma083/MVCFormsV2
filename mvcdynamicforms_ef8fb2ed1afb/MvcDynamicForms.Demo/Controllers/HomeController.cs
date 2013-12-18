@@ -34,15 +34,23 @@ namespace MVCDynamicForms.Demo.Controllers
             List<Site> sites = dblayer.GetAll<Site>();
             return new SelectList(sites, "ContentId", "SiteName");
         }
+
         public ActionResult Index()
         {
             return View(dblayer.GetAll<Form>());
+        }
+
+        public ActionResult Details(Guid id)
+        {
+            return View(dblayer.Get<Form>(id));
         }
 
         public ActionResult About()
         {
             return View();
         }
+
+        #region Demo Action & Methods
         public ActionResult Demo1()
         {
             var form = FormProvider.GetForm();
@@ -54,6 +62,7 @@ namespace MVCDynamicForms.Demo.Controllers
             return View("Demo", form);
         }
 
+        
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Demo1(Form form)
         {   //                           ^
@@ -93,8 +102,8 @@ namespace MVCDynamicForms.Demo.Controllers
             // input is not valid
             TempData["form"] = form;
             return View("Demo", form);
-        }             
-        
+        }
+
         public ActionResult Demo3()
         {
             // recreate the form and set the keys
@@ -118,7 +127,9 @@ namespace MVCDynamicForms.Demo.Controllers
             {
                 field.Key = key++.ToString();
             }
-        }
+        } 
+        #endregion
+
         public Form ConstructFormDefinition(FormCollection form_)
         {
             Form dynamicFormDefinition = null;

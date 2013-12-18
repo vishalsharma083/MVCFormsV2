@@ -14,6 +14,7 @@ namespace MVCDynamicForms
     {
         private List<Field> _fields = new List<Field>();
         internal Form Form { get; set; }
+        public FieldList() { }
 
         internal FieldList(Form form)
         {

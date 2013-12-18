@@ -23,10 +23,7 @@ namespace MVCDynamicForms.Fields
         protected string _errorClass = "MvcDynamicFieldError";
         protected Dictionary<string, string> _inputHtmlAttributes = new Dictionary<string, string>();
 
-        /// <summary>
-        /// Used to identify InputFields when working with end users' responses.
-        /// </summary>
-        public string ResponseTitle { get; set; }
+        
         /// <summary>
         /// The question asked of the end user.
         /// </summary>

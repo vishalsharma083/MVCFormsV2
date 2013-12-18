@@ -83,6 +83,13 @@ namespace MVCDynamicForms.DBLayer.Tests
         }
 
         [TestMethod()]
+        public void FormGetTestV1()
+        {
+            MongoDBLayer dblayer = new MongoDBLayer();
+            Form actual = dblayer.GetV2<Form>(Guid.Parse(@"ac065d7e-fb61-429c-add5-deb56f03c90a"));
+        }
+
+        [TestMethod()]
         public void GetWithTagsTest()
         {
             MongoDBLayer dblayer = new MongoDBLayer();

@@ -84,7 +84,7 @@ namespace MVCDynamicForms.DBLayer
             var writeConcernResult = coll.Save<T>(val_);
         }
 
-        public T Get<T>(Guid id_) where T : ContentBase
+        public T   Get<T>(Guid id_) where T : ContentBase
         {
             var result = _db.GetCollection<T>(typeof(T).ToString()).Find(Query.EQ("ContentId", id_));
             if (result != null && result.Count() > 0)
@@ -97,11 +97,23 @@ namespace MVCDynamicForms.DBLayer
             }
         }
 
+        public T GetV2<T>(Guid id_) where T : ContentBase
+        {
+            var result = _db.GetCollection<T>(typeof(T).ToString()).Find(Query.EQ("ContentId", id_));
+            using (var enumerator = result.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    var temp = enumerator.Current;
+                }
+            }
+            throw new NotImplementedException();
+        }
+
         public void Delete<T>(Guid id_) where T : ContentBase
         {
             var writeConcernResult = _db.GetCollection<T>(typeof(T).ToString()).Remove(Query.EQ("ContentId", id_));
         }
-
 
         public List<T> GetByTag<T>(string tag_) where T : ContentBase
         {
@@ -141,7 +153,6 @@ namespace MVCDynamicForms.DBLayer
 
             return results;
         }
-
 
         public List<T> GetAll<T>() where T : ContentBase
         {

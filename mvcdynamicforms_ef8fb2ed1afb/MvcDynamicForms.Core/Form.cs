@@ -33,6 +33,9 @@ namespace MVCDynamicForms
             {
                 return _fields;
             }
+            set {
+                _fields = value;
+            }
         }
         /// <summary>
         /// Gets or sets the string that is used to prefix html input elements' id and name attributes.

@@ -26,6 +26,11 @@ namespace MVCDynamicForms.Fields
         protected abstract string BuildDefaultTemplate();
 
         /// <summary>
+        /// Used to identify InputFields when working with end users' responses.
+        /// </summary>
+        public string ResponseTitle { get; set; }
+
+        /// <summary>
         /// The fields's HTML template.
         /// </summary>
         public string Template { get; set; }
