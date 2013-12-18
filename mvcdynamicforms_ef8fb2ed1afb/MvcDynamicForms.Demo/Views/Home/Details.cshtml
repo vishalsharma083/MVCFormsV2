@@ -1,0 +1,57 @@
+﻿@model MVCDynamicForms.Form
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent {
+
+<h2>Details</h2>
+<fieldset>
+    <legend>DynamicForm</legend>
+    <div class="display-label">
+        SiteId</div>
+    <div class="display-field">@Model.SiteId</div>
+    <div class="display-label">
+        FormName</div>
+    <div class="display-field">@Model.FormName</div>
+    <div class="display-label">
+        Active</div>
+    <div class="display-field">@Model.IsActive</div>
+    <div class="display-label">
+        Fields</div>
+    <div class="display-field">@(Model.Fields == null ? "None" : Model.Fields.Count().ToString())</div>
+    <div class="display-label">
+        Structure</div>
+    <div class="display-field">
+        @if (Model.Fields != null)
+        {
+            
+            <table>
+                <tr>
+                    <td>
+                        <strong>FieldName</strong>
+                    </td>
+                    <td>
+                        <strong>FieldType</strong>
+                    </td>
+                </tr>
+                @foreach (var inputField in Model.Fields)
+                {
+                    <tr>
+                        <td>@inputField.ResponseTitle
+                        </td>
+                        <td>@inputField.ToString()
+                        </td>                        
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index", new { id = Model.SiteId })
+</p>
+}
